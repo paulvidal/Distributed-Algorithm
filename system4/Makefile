@@ -23,8 +23,20 @@ clean:
 SYSTEM     = system4
 L_ERL      = erl -noshell -pa ebin -setcookie pass
 
-run1: all
-	$(L_ERL) -s $(SYSTEM) start 100 1000
+run1_1: all
+	$(L_ERL) -s $(SYSTEM) start 100 1000 100
 
-run2: all
-	$(L_ERL) -s $(SYSTEM) start 0 1000
+run1_2: all
+	$(L_ERL) -s $(SYSTEM) start 100 1000 50
+
+run1_3: all
+	$(L_ERL) -s $(SYSTEM) start 100 1000 0
+
+run2_1: all
+	$(L_ERL) -s $(SYSTEM) start 0 1000 100
+
+run2_2: all
+	$(L_ERL) -s $(SYSTEM) start 0 1000 50
+
+run2_3: all
+	$(L_ERL) -s $(SYSTEM) start 0 1000 0
