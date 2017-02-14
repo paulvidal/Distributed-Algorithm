@@ -20,7 +20,7 @@ clean:
 
 # RUN =========================================================
 
-SYSTEM    = system2
+SYSTEM     = system2
 L_ERL      = erl -noshell -pa ebin -setcookie pass
 
 run1: all
