@@ -20,11 +20,11 @@ clean:
 
 # RUN =========================================================
 
-SYSTEM1    = system1
+SYSTEM    = system1
 L_ERL      = erl -noshell -pa ebin -setcookie pass
 
 run1: all
-	$(L_ERL) -s $(SYSTEM1) start 1000 3000
+	$(L_ERL) -s $(SYSTEM) start 1000 3000
 
 run2: all
-	$(L_ERL) -s $(SYSTEM1) start 0 3000
+	$(L_ERL) -s $(SYSTEM) start 0 3000

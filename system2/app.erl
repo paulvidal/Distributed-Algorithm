@@ -5,7 +5,7 @@
 
 start(Number) ->
   receive
-    {bind_pls, Pl, Pls} -> task_start(Number, Pl, Pls)
+    {bind, Pl, Pls} -> task_start(Number, Pl, Pls)
   end.
 
 task_start(Number, Pl, Pls) ->
