@@ -1,6 +1,6 @@
 % Paul Vidal (pv14)
 
--module(app).
+-module(best_effort_broadcast).
 -export([start/1]).
 
 start(App) ->
@@ -16,6 +16,6 @@ next(App, Pl, Pls) ->
       [Pl ! {pl_send, Pl_send, M} || Pl_send <- Pls];
 
     {pl_deliver, M} ->
-      App ! {message, M}
+      App ! M
   end,
   next(App, Pl, Pls).

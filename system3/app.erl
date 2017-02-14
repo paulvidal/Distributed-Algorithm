@@ -51,7 +51,7 @@ send_messages(Number, Beb, Status) ->
                     {ToCount, FromCount} = maps:get(ToNumber, Status),
                     {ToNumber, {ToCount + 1, FromCount}}
                   end
-                  || ToNumber <- lists:seq(1, length(Pls))]).
+                  || ToNumber <- lists:seq(1, maps:size(Status))]).
 
 % Update the receive count in the map
 update_receive(FromNumber, Status) ->

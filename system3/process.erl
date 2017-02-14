@@ -6,7 +6,7 @@
 start(Number, Sys) ->
   process_flag(trap_exit, true),
   App = spawn_link(app, start, [Number]),
-  Beb = spwan(best_effort_broadcast, start, [App]),
+  Beb = spawn(best_effort_broadcast, start, [App]),
   Pl = spawn(pl, start, [Beb]),
   Sys ! {bind_pl, Pl},
   await_termination(Sys).
