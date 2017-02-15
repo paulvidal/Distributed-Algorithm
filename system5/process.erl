@@ -9,9 +9,18 @@ start(Number, Sys) ->
   Beb = spawn(best_effort_broadcast, start, [App]),
   Pl = spawn(pl, start, [Beb]),
   Sys ! {bind_pl, Pl},
-  await_termination(Sys).
+  await_termination(Sys, App, Beb, Pl).
 
-await_termination(Sys) ->
+await_termination(Sys, App, Beb, Pl) ->
   receive
-    {'EXIT', _, _} -> Sys ! process_terminated
+    stop -> stop_system(App, Beb, Pl);
+
+    {'EXIT', _, _} ->
+      stop_system(App, Beb, Pl),
+      Sys ! process_terminated
   end.
+
+stop_system(App, Beb, Pl) ->
+  exit(Pl, stop),
+  exit(Beb, stop),
+  exit(App, stop).

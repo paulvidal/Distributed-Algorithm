@@ -1,6 +1,6 @@
 .SUFFIXES: .erl .beam
 
-MODULES  = system4 app process pl best_effort_broadcast
+MODULES  = system5 app process pl best_effort_broadcast
 
 # BUILD =======================================================
 
@@ -20,23 +20,11 @@ clean:
 
 # RUN =========================================================
 
-SYSTEM     = system4
+SYSTEM     = system5
 L_ERL      = erl -noshell -pa ebin -setcookie pass
 
-run1_1: all
+run1: all
 	$(L_ERL) -s $(SYSTEM) start 100 1000 100
 
-run1_2: all
-	$(L_ERL) -s $(SYSTEM) start 100 1000 50
-
-run1_3: all
-	$(L_ERL) -s $(SYSTEM) start 100 1000 0
-
-run2_1: all
+run2: all
 	$(L_ERL) -s $(SYSTEM) start 0 1000 100
-
-run2_2: all
-	$(L_ERL) -s $(SYSTEM) start 0 1000 50
-
-run2_3: all
-	$(L_ERL) -s $(SYSTEM) start 0 1000 0
