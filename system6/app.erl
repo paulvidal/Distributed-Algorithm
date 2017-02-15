@@ -45,7 +45,6 @@ broadcast(Number, Erb, Message_left, Status, NoLimit) ->
 
 % Send a message to all processes and update the map
 send_messages(Number, Message_left, Erb, Status) ->
-  timer:sleep(1),
   Erb ! {erb_broadcast, {message, Message_left, Number}},
 
   maps:from_list([begin
